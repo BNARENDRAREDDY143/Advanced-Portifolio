@@ -1,0 +1,135 @@
+/* Ambient Background Video Styling */
+.ambient-background-video-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambient-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: saturate(1.4) brightness(0.75) contrast(1.1);
+}
+
+.ambient-bg-video.loaded {
+  opacity: 0.38;
+}
+
+/* Color & Depth Gradient Overlay */
+.bg-video-color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 15%,
+    rgba(15, 23, 55, 0.65) 0%,
+    rgba(7, 10, 24, 0.88) 60%,
+    rgba(3, 6, 17, 0.97) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+/* Vignette Darkening for Maximum Readability */
+.bg-video-vignette-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 6, 17, 0.7) 0%,
+    rgba(3, 6, 17, 0.3) 30%,
+    rgba(3, 6, 17, 0.75) 70%,
+    rgba(3, 6, 17, 0.98) 100%
+  );
+}
+
+/* Subtle Cyber Scanline Grid */
+.bg-video-scanline-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      rgba(0, 240, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.7;
+}
+
+/* Subtle Floating Bottom Left Controls */
+.ambient-bg-controls {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  pointer-events: all;
+  background: rgba(10, 16, 35, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.ambient-bg-controls:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  background: rgba(10, 16, 35, 0.9);
+}
+
+.ambient-ctrl-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.45rem;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.ambient-ctrl-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ambient-ctrl-btn.pause-toggle {
+  font-size: 0.75rem;
+  color: var(--primary-color, #00f0ff);
+}
+
+@media (max-width: 768px) {
+  .ambient-bg-controls {
+    bottom: 1rem;
+    left: 1rem;
+  }
+}

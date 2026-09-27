@@ -1,0 +1,44 @@
+:root {
+  font-family: 'Inter', 'Montserrat', 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #A0A0A0; /* Light Grey for text */
+  background-color: #000000; /* Absolute black */
+  
+  --neon-cyan: #00E5FF;
+  --glass-bg: rgba(20, 20, 20, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Viewport Glow Effect */
+  box-shadow: inset 0 0 150px rgba(0, 229, 255, 0.05);
+}
+
+a {
+  font-weight: 500;
+  color: var(--neon-cyan);
+  text-decoration: inherit;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}

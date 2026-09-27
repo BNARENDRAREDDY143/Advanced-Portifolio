@@ -1,0 +1,275 @@
+@import './Components/styles/HeaderAdvanced.css';
+@import './Components/styles/HeroAdvanced.css';
+@import './Components/styles/SkillsAdvanced.css';
+@import './Components/styles/ProjectsAdvanced.css';
+@import './Components/styles/ExperienceAdvanced.css';
+@import './Components/styles/EducationAdvanced.css';
+@import './Components/styles/CertificationsAdvanced.css';
+@import './Components/styles/ContactAdvanced.css';
+
+/* Core Global Reset & Theme Variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #00f0ff;
+  --secondary-color: #ff007f;
+  --accent-color: #8a2be2;
+  --dark-bg: #070a18;
+  --darker-bg: #030611;
+  --card-bg: rgba(13, 20, 48, 0.65);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-glow: rgba(0, 240, 255, 0.25);
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+}
+
+/* Theme Variances */
+.theme-cyan {
+  --primary-color: #00f0ff;
+  --secondary-color: #ff007f;
+  --accent-color: #8a2be2;
+  --border-glow: rgba(0, 240, 255, 0.25);
+}
+
+.theme-purple {
+  --primary-color: #a855f7;
+  --secondary-color: #ec4899;
+  --accent-color: #6366f1;
+  --border-glow: rgba(168, 85, 247, 0.3);
+}
+
+.theme-green {
+  --primary-color: #00ff9d;
+  --secondary-color: #00d4ff;
+  --accent-color: #10b981;
+  --border-glow: rgba(0, 255, 157, 0.3);
+}
+
+.theme-pink {
+  --primary-color: #ff007f;
+  --secondary-color: #ffb800;
+  --accent-color: #8a2be2;
+  --border-glow: rgba(255, 0, 127, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--darker-bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.App-advanced {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 10%, rgba(15, 23, 55, 0.8) 0%, var(--darker-bg) 100%);
+  overflow-x: hidden;
+}
+
+.main-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Dividers */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary-color) 50%,
+    transparent 100%
+  );
+  opacity: 0.25;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+/* Gradient text helper */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Toast Notifications */
+.toast-notification-banner {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10000;
+  animation: toastSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastSlide {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.toast-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(13, 20, 48, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+  padding: 0.75rem 1.25rem;
+  border-radius: 30px;
+}
+
+.toast-sparkle {
+  font-size: 1.1rem;
+}
+
+.toast-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.toast-close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+/* Footer Styling */
+.advanced-footer {
+  position: relative;
+  background: rgba(3, 6, 17, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4rem 0 2rem 0;
+  margin-top: 4rem;
+  z-index: 2;
+}
+
+.footer-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-info {
+  max-width: 480px;
+}
+
+.footer-logo-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.footer-bio-short {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 3rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.col-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.footer-col a {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.back-to-top-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.back-to-top-btn:hover {
+  border-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}

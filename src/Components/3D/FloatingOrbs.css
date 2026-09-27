@@ -1,0 +1,46 @@
+.floating-orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  will-change: transform;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(100px, -100px) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(50px, 100px) scale(1);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(-100px, 50px) scale(1.05);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .orb {
+    filter: blur(30px);
+  }
+}
