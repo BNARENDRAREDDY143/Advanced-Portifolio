@@ -32,33 +32,86 @@ const Projects = () => {
       category: 'ai',
       tagline: 'Automated Query Resolution NLP Engine',
       description: 'Built an intelligent interactive conversational chatbot designed to streamline administrative and academic inquiries for students and faculty.',
-      technologies: ['Python', 'Natural Language Processing', 'JavaScript', 'HTML5', 'CSS3'],
+      technologies: ['Python', 'NLP Engine', 'JavaScript', 'HTML5', 'CSS3', 'Vercel Deployment'],
       points: [
         'Automated 20+ common enquiry categories including admissions, examinations, course fees, and departmental details',
         'Reduced manual administrative query handling time by ~40%',
         'Designed real-time responsive chat UI with instant answer suggestions and fallback handling'
       ],
       architecture: 'Student Query -> Preprocessing & Tokenization -> Intent Classification Engine -> Response Dispatcher -> Web UI Stream',
-      githubUrl: 'https://github.com/BNARENDRAREDDY143',
+      githubUrl: 'https://github.com/BNARENDRAREDDY143/Chatbot',
+      liveUrl: 'https://chatbot-57jp.vercel.app',
       featured: true,
-      badge: 'Featured AI'
+      badge: 'Live AI Demo 🟢'
     },
     {
-      id: 'social-media-app',
-      title: 'Full Stack Social Media Application',
+      id: 'online-learning-platform',
+      title: 'Online Learning Platform',
       category: 'fullstack',
-      tagline: 'Scalable Community & Content Sharing Platform',
-      description: 'Developing a comprehensive full-stack social network featuring secure user authentication, personal profiles, real-time post creation, likes, comments, and relational database management.',
+      tagline: 'Interactive Learning & Student Performance Platform',
+      description: 'Developing a full-stack online learning platform that enables students to access courses, learning materials, video lectures, quizzes, and track their learning progress.',
       technologies: ['React.js', 'Node.js', 'Express.js', 'SQL / Relational DB', 'JWT Auth'],
       points: [
-        'Engineered secure user registration, token-based authentication, and profile customization',
-        'Implemented dynamic feed generation, interactive like counter, and comment threading',
-        'Designed normalized relational SQL database schema with indexing for fast feed queries'
+        'Implemented secure user registration, login, and role-based access for students',
+        'Developed course browsing, learning materials, video lectures, and online quiz functionality',
+        'Implemented student progress tracking and performance management using a relational database'
       ],
-      architecture: 'Client (React SPA) -> RESTful API Gateway (Express) -> Controller Middleware -> Relational SQL Database',
-      githubUrl: 'https://github.com/BNARENDRAREDDY143',
+      architecture: 'Client (React SPA) -> RESTful API (Express) -> Authentication & Business Logic -> Relational SQL Database',
+      githubUrl: 'https://github.com/BNARENDRAREDDY143/',
+      liveUrl: 'https://online-learning-platform-jet-delta.vercel.app',
       featured: true,
       badge: 'Full Stack'
+    },
+    {
+      id: 'adaptive-3d-webxr-learning-platform',
+      title: 'Adaptive 3D/WebXR Learning Platform',
+      category: 'fullstack',
+      tagline: 'Immersive 3D Learning with AI-Powered Performance Prediction',
+      description: 'Developing an adaptive learning platform that combines 3D/WebXR technology with machine learning to provide immersive learning experiences and predict student performance based on learning behavior and assessment results.',
+      technologies: [
+        'React.js',
+        'Three.js',
+        'React Three Fiber',
+        'Python / Flask',
+        'Machine Learning',
+        'PostgreSQL / SQLite',
+        'JWT Auth',
+        'Tailwind CSS'
+      ],
+      points: [
+        'Developed interactive 3D learning environments using Three.js and React Three Fiber for immersive WebXR-based education',
+        'Implemented adaptive learning features and machine learning-based performance prediction using student learning and assessment data',
+        'Built secure authentication and backend APIs using Flask and JWT, with SQLite and PostgreSQL for data management'
+      ],
+      architecture: 'Client (React + Tailwind CSS) -> 3D/WebXR Layer (Three.js + React Three Fiber) -> Flask REST API -> ML Performance Prediction -> SQLite/PostgreSQL Database',
+      githubUrl: 'https://github.com/BNARENDRAREDDY143',
+      featured: true,
+      badge: 'AI + WebXR 🕶️'
+    },
+    {
+      id: 'task-management-app',
+      title: 'Task Management Application',
+      category: 'fullstack',
+      tagline: 'Efficient Task Planning & Productivity Platform',
+      description: 'Developed a full-stack task management application using the MERN stack that enables users to create, organize, prioritize, and track tasks through an intuitive and responsive interface.',
+      technologies: [
+        'React.js',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'JWT Auth',
+        'Tailwind CSS'
+      ],
+      points: [
+        'Implemented secure user registration, login, and JWT-based authentication',
+        'Developed features for creating, editing, deleting, prioritizing, and tracking task status',
+        'Built a responsive dashboard with task filtering and organization to improve productivity'
+      ],
+      architecture: 'Client (React.js + Tailwind CSS) -> RESTful API (Node.js + Express.js) -> MongoDB Database',
+      githubUrl: 'https://github.com/BNARENDRAREDDY143/taskapp',
+      liveUrl: 'https://taskapp-iota-nine.vercel.app',
+      featured: true,
+      badge: 'MERN Stack'
     }
   ];
 
@@ -124,7 +177,9 @@ const Projects = () => {
             <TiltCard key={project.id} className="project-tilt-card" maxTilt={10} scale={1.02}>
               <div className="project-card-content">
                 <div className="project-top-row">
-                  <span className="project-badge-pill">{project.badge}</span>
+                  <span className={`project-badge-pill ${project.liveUrl ? 'live-badge' : ''}`}>
+                    {project.badge}
+                  </span>
                   <div className="project-tech-count">{project.technologies.length} Tech Stack</div>
                 </div>
 
@@ -155,15 +210,31 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="project-card-footer">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-action-btn live"
+                      onClick={() => soundFx.playClick()}
+                      onMouseEnter={() => soundFx.playHover()}
+                      title="Launch Live Application on Vercel"
+                    >
+                      <span className="pulse-circle"></span>
+                      <span>Live Demo</span>
+                      <span className="btn-arrow">⚡</span>
+                    </a>
+                  )}
+
                   <button
-                    className="project-action-btn primary"
+                    className={`project-action-btn ${project.liveUrl ? 'details-btn' : 'primary'}`}
                     onClick={() => {
                       soundFx.playClick();
                       setSelectedProject(project);
                     }}
                     onMouseEnter={() => soundFx.playHover()}
                   >
-                    <span>Deep Dive & Architecture</span>
+                    <span>Architecture</span>
                     <span className="btn-arrow">↗</span>
                   </button>
 

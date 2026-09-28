@@ -31,7 +31,8 @@ const InteractiveTerminal = () => {
           text: `Available Commands:
   • bio          : Overview of Narendra Reddy
   • skills       : View technical & soft skill stack
-  • projects     : List key featured projects
+  • projects     : List key featured projects with live links
+  • chatbot      : Launch live College Enquiry Chatbot (Vercel)
   • certs        : View certifications & credentials
   • contact      : Get email, phone, and social handles
   • stats        : Show LeetCode and academic achievements
@@ -63,8 +64,21 @@ Passionate Software & Full Stack Developer specializing in Python, React, SQL, a
         newHistory.push({
           type: 'output',
           text: `1. AP Tourism Website (React, JS, CSS) - 100% responsive tourism platform
-2. Chatbot for College Enquiries (Python, Web) - Automated 20+ query categories
-3. Full Stack Social Media App (React, Node.js, SQL, Express)`
+2. Chatbot for College Enquiries (Python, NLP, Web) [LIVE 🟢: https://chatbot-57jp.vercel.app]
+3. Online Learning Platform (React, Node.js, SQL, Express) [LIVE 🟢: https://online-learning-platform-jet-delta.vercel.app]
+4. Adaptive 3D/WebXR Learning Platform (Three.js, React Three Fiber, Flask, ML)
+5. Task Management Application (MERN Stack) [LIVE 🟢: https://taskapp-iota-nine.vercel.app]`
+        });
+        break;
+
+      case 'chatbot':
+      case 'vercel':
+        newHistory.push({
+          type: 'output',
+          text: `🤖 Chatbot for College Enquiries (NLP Engine)
+Status: Live & Deployed
+URL   : https://chatbot-57jp.vercel.app
+Tech  : Python, NLP, JavaScript, Responsive Web UI, Vercel`
         });
         break;
 

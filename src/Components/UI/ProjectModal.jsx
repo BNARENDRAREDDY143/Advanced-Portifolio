@@ -60,9 +60,40 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
             </div>
           )}
+
+          {project.liveUrl && (
+            <div className="modal-section modal-live-section">
+              <h3>🌐 Live Deployment Status</h3>
+              <div className="live-status-box">
+                <div className="live-status-info">
+                  <span className="live-indicator-dot"></span>
+                  <span className="live-status-text">Production Build Online on Vercel</span>
+                </div>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="live-direct-link"
+                >
+                  {project.liveUrl} ↗
+                </a>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="modal-footer">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="modal-btn live-btn"
+              onClick={() => soundFx.playClick()}
+            >
+              <span>🚀 Launch Live App</span>
+            </a>
+          )}
           <a
             href={project.githubUrl || 'https://github.com/BNARENDRAREDDY143'}
             target="_blank"
@@ -70,7 +101,7 @@ const ProjectModal = ({ project, onClose }) => {
             className="modal-btn primary-btn"
             onClick={() => soundFx.playClick()}
           >
-            <span>View GitHub Repository</span>
+            <span>View GitHub</span>
           </a>
           <button
             className="modal-btn secondary-btn"
