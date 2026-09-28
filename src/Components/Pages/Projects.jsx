@@ -57,7 +57,7 @@ const Projects = () => {
         'Implemented student progress tracking and performance management using a relational database'
       ],
       architecture: 'Client (React SPA) -> RESTful API (Express) -> Authentication & Business Logic -> Relational SQL Database',
-      githubUrl: 'https://github.com/BNARENDRAREDDY143/',
+      githubUrl: 'https://github.com/BNARENDRAREDDY143/Online-Learning-Platform',
       liveUrl: 'https://online-learning-platform-jet-delta.vercel.app',
       featured: true,
       badge: 'Full Stack'
